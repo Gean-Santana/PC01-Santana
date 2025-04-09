@@ -1,0 +1,11 @@
+<h1>Lista de Tareas</h1>
+<a href="{% url 'crear_tarea' %}">➕ Nueva Tarea</a>
+<ul>
+  {% for tarea in tareas %}
+    <li>
+      {{ tarea.titulo }} - {% if tarea.completada %}✅{% else %}❌{% endif %}
+      <a href="{% url 'editar_tarea' tarea.id %}">✏️</a>
+      <a href="{% url 'eliminar_tarea' tarea.id %}">🗑️</a>
+    </li>
+  {% endfor %}
+</ul>
